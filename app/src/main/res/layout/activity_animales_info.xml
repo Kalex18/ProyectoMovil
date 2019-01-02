@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".animalesInfo"
     >
+
+<ScrollView
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <ListView
         android:id="@+id/lstdatos2"
         android:layout_width="395dp"
-        android:layout_height="match_parent"
+        android:layout_height="520dp"
         android:layout_marginTop="10dp"
         android:dividerHeight="7dp" />
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_margin="15sp"
+        android:src="@drawable/ic_menu_camera"
+        android:id="@+id/camaraflotante"
+android:layout_gravity="bottom|end"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+</android.support.design.widget.CoordinatorLayout>

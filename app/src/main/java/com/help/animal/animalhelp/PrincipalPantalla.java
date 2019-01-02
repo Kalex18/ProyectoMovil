@@ -1,6 +1,5 @@
 package com.help.animal.animalhelp;
 
-import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -10,18 +9,20 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -32,10 +33,12 @@ public class PrincipalPantalla extends AppCompatActivity {
     ImageView imagen;
     Button boton;
     Button CargarIMg;
-
+    ListView listaDato;
+    ArrayList<datos> lista;
 ///////////////////////// views de autentificacion
-
+    int id =0;
     Button enviar ;
+    EditText titulo;
     EditText ubicacion;
     EditText descripcion;
     RadioButton rbPerro,rbGato ,rbOtro;
@@ -53,6 +56,8 @@ public class PrincipalPantalla extends AppCompatActivity {
 
 
 
+
+///////////////////////////////////////////////////////////
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal_pantalla);
 
@@ -83,6 +88,7 @@ public class PrincipalPantalla extends AppCompatActivity {
         enviar =(Button)findViewById(R.id.btnEnviarU);
         ubicacion = (EditText)findViewById(R.id.txtubicacion);
         descripcion = (EditText)findViewById(R.id.txtdescripcion);
+        titulo= (EditText)findViewById(R.id.txtTituloPrin);
         rbPerro= (RadioButton) findViewById(R.id.rbperro);
         rbGato= (RadioButton) findViewById(R.id.rbgato);
         rbOtro= (RadioButton) findViewById(R.id.rbotro);
@@ -123,7 +129,17 @@ public class PrincipalPantalla extends AppCompatActivity {
                     toast1.show();
                 }
                 else {
+
+             insertedDates();
+
+
+
+
+
+
+
                     // luego de la comprobacion aqui iran los parametros para enviar a la base de datos
+
 
 
                     Toast toast1 =
@@ -216,6 +232,30 @@ public class PrincipalPantalla extends AppCompatActivity {
             imagen.setImageBitmap(imgBitmap);
         }
         }
+
+
+//////////////////////////envia los parametros a la activity animales info
+        private void insertedDates(){
+
+////////////////////////
+
+
+            Intent intent = new Intent(PrincipalPantalla.this,animalesInfo.class);
+
+            intent.putExtra("descripcion",descripcion.getText().toString());
+            intent.putExtra("titulo",titulo.getText().toString());
+            intent.putExtra("imagen",titulo.getText().toString());
+            startActivity(intent);
+
+
+
+        }
+
+
+
+
+
+
 
     }
 

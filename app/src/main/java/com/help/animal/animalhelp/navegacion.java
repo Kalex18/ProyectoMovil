@@ -28,18 +28,6 @@ public class navegacion extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-listaDato=(ListView)findViewById(R.id.lstDatos);
-
-lista = new ArrayList<datos>();
-lista.add(new datos(1 ,"Mishifu","gato abandonado en calle", R.drawable.perro1));
-        lista.add(new datos(1 ,"Mishifu","gato abandonado en calle", R.drawable.perro1));
-        lista.add(new datos(1 ,"Mishifu","gato abandonado en calle", R.drawable.perro1));
-        lista.add(new datos(1 ,"Mishifu","gato abandonado en calle", R.drawable.perro1));
-
-Adaptador adaptador =new Adaptador(getApplicationContext(),lista);
-
-        //listaDato.setAdapter(adaptador);//
-
 
 
 
